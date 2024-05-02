@@ -1,0 +1,23 @@
+name: PR Check
+
+on:
+  pull_request:
+
+jobs:
+  super-linter:
+    name: Super Linter
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          # Full git history is needed to get a proper list of changed files within `super-linter`
+          fetch-depth: 0
+          
+      - name: Super Linter
+        uses: super-linter/super-linter/slim@v6.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BRANCH: main
+          VALIDATE_MARKDOWN: true
+          VALIDATE_YAML: true
