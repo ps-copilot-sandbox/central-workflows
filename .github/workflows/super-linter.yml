@@ -21,4 +21,4 @@ jobs:
           DEFAULT_BRANCH: main
           VALIDATE_MARKDOWN: true
           VALIDATE_YAML: true
-          FILTER_REGEX_EXCLUDE: .github/copilot.*
+          FILTER_REGEX_EXCLUDE: ^.github/copilot.*
